@@ -76,7 +76,7 @@ export async function api(request: Request<Locals>, resource: string, data?: Tod
 	// behaviour is to show the URL corresponding to the form's "action"
 	// attribute. in those cases, we want to redirect them back to the
 	// /todos page, rather than showing the response
-	if (res.ok && request.method !== 'GET' && request.headers.accept !== 'application/json') {
+	if (request.method !== 'GET' && request.headers.accept !== 'application/json') {
 		return {
 			status: 303,
 			headers: {

@@ -5,8 +5,8 @@ var __getOwnPropNames3 = Object.getOwnPropertyNames;
 var __getProtoOf3 = Object.getPrototypeOf;
 var __hasOwnProp3 = Object.prototype.hasOwnProperty;
 var __markAsModule3 = (target) => __defProp3(target, "__esModule", { value: true });
-var __esm = (fn, res2) => function __init() {
-  return fn && (res2 = (0, fn[Object.keys(fn)[0]])(fn = 0)), res2;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[Object.keys(fn)[0]])(fn = 0)), res;
 };
 var __commonJS3 = (cb, mod2) => function __require() {
   return mod2 || (0, cb[Object.keys(cb)[0]])((mod2 = { exports: {} }).exports, mod2), mod2.exports;
@@ -5123,7 +5123,7 @@ var require_runtime = __commonJS3({
             return resolve2(subStep(p, i, ii + 1));
           });
         }), "subStep");
-        return cb ? step(0).then((res2) => cb(null, res2), cb) : step(0);
+        return cb ? step(0).then((res) => cb(null, res), cb) : step(0);
       }, "which");
       var whichSync = /* @__PURE__ */ __name((cmd, opt) => {
         opt = opt || {};
@@ -12042,7 +12042,7 @@ ${this.stderrLogs}`));
               return resolve2(subStep(p, i, ii + 1));
             });
           }), "subStep");
-          return cb ? step(0).then((res2) => cb(null, res2), cb) : step(0);
+          return cb ? step(0).then((res) => cb(null, res), cb) : step(0);
         }, "which");
         var whichSync = /* @__PURE__ */ __name((cmd, opt) => {
           opt = opt || {};
@@ -14333,7 +14333,7 @@ ${error2.message}` : execaMessage;
           if (!this.tail) {
             return void 0;
           }
-          var res2 = this.tail.value;
+          var res = this.tail.value;
           this.tail = this.tail.prev;
           if (this.tail) {
             this.tail.next = null;
@@ -14341,13 +14341,13 @@ ${error2.message}` : execaMessage;
             this.head = null;
           }
           this.length--;
-          return res2;
+          return res;
         };
         Yallist.prototype.shift = function() {
           if (!this.head) {
             return void 0;
           }
-          var res2 = this.head.value;
+          var res = this.head.value;
           this.head = this.head.next;
           if (this.head) {
             this.head.prev = null;
@@ -14355,7 +14355,7 @@ ${error2.message}` : execaMessage;
             this.tail = null;
           }
           this.length--;
-          return res2;
+          return res;
         };
         Yallist.prototype.forEach = function(fn, thisp) {
           thisp = thisp || this;
@@ -14389,21 +14389,21 @@ ${error2.message}` : execaMessage;
         };
         Yallist.prototype.map = function(fn, thisp) {
           thisp = thisp || this;
-          var res2 = new Yallist();
+          var res = new Yallist();
           for (var walker = this.head; walker !== null; ) {
-            res2.push(fn.call(thisp, walker.value, this));
+            res.push(fn.call(thisp, walker.value, this));
             walker = walker.next;
           }
-          return res2;
+          return res;
         };
         Yallist.prototype.mapReverse = function(fn, thisp) {
           thisp = thisp || this;
-          var res2 = new Yallist();
+          var res = new Yallist();
           for (var walker = this.tail; walker !== null; ) {
-            res2.push(fn.call(thisp, walker.value, this));
+            res.push(fn.call(thisp, walker.value, this));
             walker = walker.prev;
           }
-          return res2;
+          return res;
         };
         Yallist.prototype.reduce = function(fn, initial) {
           var acc;
@@ -16089,7 +16089,7 @@ ${error2.message}` : execaMessage;
           } else {
             var files = basedir;
           }
-          var res2 = files.slice(1).reduce(function(ps, file2) {
+          var res = files.slice(1).reduce(function(ps, file2) {
             if (!file2.match(/^([A-Za-z]:)?\/|\\/)) {
               throw new Error("relative path without a basedir");
             }
@@ -16098,7 +16098,7 @@ ${error2.message}` : execaMessage;
               ;
             return ps.slice(0, i);
           }, files[0].split(/\/+|\\+/));
-          return res2.length > 1 ? res2.join("/") : "/";
+          return res.length > 1 ? res.join("/") : "/";
         };
       });
       var require_p_try = __commonJS((exports2, module2) => {
@@ -16756,15 +16756,15 @@ ${error2.message}` : execaMessage;
       });
       var require_concat_map = __commonJS((exports2, module2) => {
         module2.exports = function(xs, fn) {
-          var res2 = [];
+          var res = [];
           for (var i = 0; i < xs.length; i++) {
             var x = fn(xs[i], i);
             if (isArray(x))
-              res2.push.apply(res2, x);
+              res.push.apply(res, x);
             else
-              res2.push(x);
+              res.push(x);
           }
-          return res2;
+          return res;
         };
         var isArray = Array.isArray || function(xs) {
           return Object.prototype.toString.call(xs) === "[object Array]";
@@ -20257,17 +20257,17 @@ ${error2.message}` : execaMessage;
               fragment: null,
               cannotBeABaseURL: false
             };
-            const res22 = trimControlChars(this.input);
-            if (res22 !== this.input) {
+            const res2 = trimControlChars(this.input);
+            if (res2 !== this.input) {
               this.parseError = true;
             }
-            this.input = res22;
+            this.input = res2;
           }
-          const res2 = trimTabAndNewline(this.input);
-          if (res2 !== this.input) {
+          const res = trimTabAndNewline(this.input);
+          if (res !== this.input) {
             this.parseError = true;
           }
-          this.input = res2;
+          this.input = res;
           this.state = stateOverride || "scheme start";
           this.buffer = "";
           this.atFlag = false;
@@ -21551,31 +21551,31 @@ ${error2.message}` : execaMessage;
           }
           const ct = headers.get("content-type");
           let charset = "utf-8";
-          let res2, str;
+          let res, str;
           if (ct) {
-            res2 = /charset=([^;]*)/i.exec(ct);
+            res = /charset=([^;]*)/i.exec(ct);
           }
           str = buffer.slice(0, 1024).toString();
-          if (!res2 && str) {
-            res2 = /<meta.+?charset=(['"])(.+?)\1/i.exec(str);
+          if (!res && str) {
+            res = /<meta.+?charset=(['"])(.+?)\1/i.exec(str);
           }
-          if (!res2 && str) {
-            res2 = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(str);
-            if (!res2) {
-              res2 = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(str);
-              if (res2) {
-                res2.pop();
+          if (!res && str) {
+            res = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(str);
+            if (!res) {
+              res = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(str);
+              if (res) {
+                res.pop();
               }
             }
-            if (res2) {
-              res2 = /charset=(.*)/i.exec(res2.pop());
+            if (res) {
+              res = /charset=(.*)/i.exec(res.pop());
             }
           }
-          if (!res2 && str) {
-            res2 = /<\?xml.+?encoding=(['"])(.+?)\1/i.exec(str);
+          if (!res && str) {
+            res = /<\?xml.+?encoding=(['"])(.+?)\1/i.exec(str);
           }
-          if (res2) {
-            charset = res2.pop();
+          if (res) {
+            charset = res.pop();
             if (charset === "gb2312" || charset === "gbk") {
               charset = "gb18030";
             }
@@ -22194,10 +22194,10 @@ ${error2.message}` : execaMessage;
               reject(new FetchError2(`request to ${request.url} failed, reason: ${err.message}`, "system", err));
               finalize();
             });
-            req.on("response", function(res2) {
+            req.on("response", function(res) {
               clearTimeout(reqTimeout);
-              const headers = createHeadersLenient(res2.headers);
-              if (fetch2.isRedirect(res2.statusCode)) {
+              const headers = createHeadersLenient(res.headers);
+              if (fetch2.isRedirect(res.statusCode)) {
                 const location = headers.get("Location");
                 const locationURL = location === null ? null : resolve_url(request.url, location);
                 switch (request.redirect) {
@@ -22235,12 +22235,12 @@ ${error2.message}` : execaMessage;
                       timeout: request.timeout,
                       size: request.size
                     };
-                    if (res2.statusCode !== 303 && request.body && getTotalBytes2(request) === null) {
+                    if (res.statusCode !== 303 && request.body && getTotalBytes2(request) === null) {
                       reject(new FetchError2("Cannot follow redirect with body being a readable stream", "unsupported-redirect"));
                       finalize();
                       return;
                     }
-                    if (res2.statusCode === 303 || (res2.statusCode === 301 || res2.statusCode === 302) && request.method === "POST") {
+                    if (res.statusCode === 303 || (res.statusCode === 301 || res.statusCode === 302) && request.method === "POST") {
                       requestOpts.method = "GET";
                       requestOpts.body = void 0;
                       requestOpts.headers.delete("content-length");
@@ -22250,22 +22250,22 @@ ${error2.message}` : execaMessage;
                     return;
                 }
               }
-              res2.once("end", function() {
+              res.once("end", function() {
                 if (signal)
                   signal.removeEventListener("abort", abortAndFinalize);
               });
-              let body = res2.pipe(new PassThrough$1());
+              let body = res.pipe(new PassThrough$1());
               const response_options = {
                 url: request.url,
-                status: res2.statusCode,
-                statusText: res2.statusMessage,
+                status: res.statusCode,
+                statusText: res.statusMessage,
                 headers,
                 size: request.size,
                 timeout: request.timeout,
                 counter: request.counter
               };
               const codings = headers.get("Content-Encoding");
-              if (!request.compress || request.method === "HEAD" || codings === null || res2.statusCode === 204 || res2.statusCode === 304) {
+              if (!request.compress || request.method === "HEAD" || codings === null || res.statusCode === 204 || res.statusCode === 304) {
                 response = new Response2(body, response_options);
                 resolve2(response);
                 return;
@@ -22281,7 +22281,7 @@ ${error2.message}` : execaMessage;
                 return;
               }
               if (codings == "deflate" || codings == "x-deflate") {
-                const raw2 = res2.pipe(new PassThrough$1());
+                const raw2 = res.pipe(new PassThrough$1());
                 raw2.once("data", function(chunk) {
                   if ((chunk[0] & 15) === 8) {
                     body = body.pipe(zlib2.createInflate());
@@ -25861,10 +25861,10 @@ ${error2.message}` : execaMessage;
             throw new TypeError("Expected the first argument to be an object");
           }
           let keys2 = micromatch(Object.keys(obj), patterns, options3);
-          let res2 = {};
+          let res = {};
           for (let key of keys2)
-            res2[key] = obj[key];
-          return res2;
+            res[key] = obj[key];
+          return res;
         };
         micromatch.some = (list, patterns, options3) => {
           let items = [].concat(list);
@@ -25903,13 +25903,13 @@ ${error2.message}` : execaMessage;
         micromatch.makeRe = (...args) => picomatch.makeRe(...args);
         micromatch.scan = (...args) => picomatch.scan(...args);
         micromatch.parse = (patterns, options3) => {
-          let res2 = [];
+          let res = [];
           for (let pattern of [].concat(patterns || [])) {
             for (let str of braces(String(pattern), options3)) {
-              res2.push(picomatch.parse(str, options3));
+              res.push(picomatch.parse(str, options3));
             }
           }
-          return res2;
+          return res;
         };
         micromatch.braces = (pattern, options3) => {
           if (typeof pattern !== "string")
@@ -26893,8 +26893,8 @@ ${error2.message}` : execaMessage;
             context = null;
           }
           function asyncWrapper(arg, cb) {
-            worker.call(this, arg).then(function(res2) {
-              cb(null, res2);
+            worker.call(this, arg).then(function(res) {
+              cb(null, res);
             }, cb);
           }
           __name(asyncWrapper, "asyncWrapper");
@@ -29626,10 +29626,10 @@ ${error2.message}` : execaMessage;
           const [zippedSha256, sha256] = [
             (await (0, node_fetch_1.default)(`${url}.sha256`, {
               agent: (0, getProxyAgent_1.getProxyAgent)(url)
-            }).then((res2) => res2.text())).split(/\s+/)[0],
+            }).then((res) => res.text())).split(/\s+/)[0],
             (await (0, node_fetch_1.default)(`${url.slice(0, url.length - 3)}.sha256`, {
               agent: (0, getProxyAgent_1.getProxyAgent)(url.slice(0, url.length - 3))
-            }).then((res2) => res2.text())).split(/\s+/)[0]
+            }).then((res) => res.text())).split(/\s+/)[0]
           ];
           return { sha256, zippedSha256 };
         }
@@ -29827,15 +29827,15 @@ ${error2.message}` : execaMessage;
         __name(getFirstFinishedCommit, "getFirstFinishedCommit");
         async function urlExists(url) {
           try {
-            const res2 = await (0, node_fetch_1.default)(url, {
+            const res = await (0, node_fetch_1.default)(url, {
               method: "HEAD",
               agent: (0, getProxyAgent_1.getProxyAgent)(url)
             });
-            const headers = fromEntries(res2.headers.entries());
-            if (res2.status > 200) {
+            const headers = fromEntries(res.headers.entries());
+            if (res.status > 200) {
             }
             if (parseInt(headers["content-length"]) > 0) {
-              return res2.status < 300;
+              return res.status < 300;
             }
           } catch (e) {
           }
@@ -29887,7 +29887,7 @@ ${error2.message}` : execaMessage;
             headers: {
               Authorization: process.env.GITHUB_TOKEN ? `token ${process.env.GITHUB_TOKEN}` : void 0
             }
-          }).then((res2) => res2.json());
+          }).then((res) => res.json());
           if (!Array.isArray(result)) {
             return result;
           }
@@ -35413,19 +35413,19 @@ ${len.toString(16)}\r
           });
         }
         onData(chunk) {
-          const { res: res2 } = this;
-          return res2.push(chunk);
+          const { res } = this;
+          return res.push(chunk);
         }
         onComplete(trailers) {
-          const { res: res2 } = this;
+          const { res } = this;
           removeSignal(this);
           if (trailers) {
             util.parseHeaders(trailers, this.trailers);
           }
-          res2.push(null);
+          res.push(null);
         }
         onError(err) {
-          const { res: res2, callback, body, opaque } = this;
+          const { res, callback, body, opaque } = this;
           removeSignal(this);
           if (callback) {
             this.callback = null;
@@ -35433,9 +35433,9 @@ ${len.toString(16)}\r
               self2.runInAsyncScope(callback2, null, err2, { opaque: opaque2 });
             }, this, callback, err, opaque);
           }
-          if (res2) {
+          if (res) {
             this.res = null;
-            util.destroy(res2, err);
+            util.destroy(res, err);
           }
           if (body) {
             this.body = null;
@@ -35528,20 +35528,20 @@ ${len.toString(16)}\r
             return;
           }
           this.factory = null;
-          const res2 = this.runInAsyncScope(factory, null, {
+          const res = this.runInAsyncScope(factory, null, {
             statusCode,
             headers: util.parseHeaders(headers),
             opaque
           });
-          if (!res2 || typeof res2.write !== "function" || typeof res2.end !== "function" || typeof res2.on !== "function") {
+          if (!res || typeof res.write !== "function" || typeof res.end !== "function" || typeof res.on !== "function") {
             throw new InvalidReturnValueError("expected Writable");
           }
-          res2.on("drain", resume);
-          finished(res2, { readable: false }, (err) => {
-            const { callback, res: res22, opaque: opaque2, trailers, abort } = this;
+          res.on("drain", resume);
+          finished(res, { readable: false }, (err) => {
+            const { callback, res: res2, opaque: opaque2, trailers, abort } = this;
             this.res = null;
-            if (err || !res22.readable) {
-              util.destroy(res22, err);
+            if (err || !res2.readable) {
+              util.destroy(res2, err);
             }
             this.callback = null;
             this.runInAsyncScope(callback, null, err || null, { opaque: opaque2, trailers });
@@ -35549,27 +35549,27 @@ ${len.toString(16)}\r
               abort();
             }
           });
-          this.res = res2;
-          const needDrain = res2.writableNeedDrain !== void 0 ? res2.writableNeedDrain : res2._writableState && res2._writableState.needDrain;
+          this.res = res;
+          const needDrain = res.writableNeedDrain !== void 0 ? res.writableNeedDrain : res._writableState && res._writableState.needDrain;
           return needDrain !== true;
         }
         onData(chunk) {
-          const { res: res2 } = this;
-          return res2.write(chunk);
+          const { res } = this;
+          return res.write(chunk);
         }
         onComplete(trailers) {
-          const { res: res2 } = this;
+          const { res } = this;
           removeSignal(this);
           this.trailers = trailers ? util.parseHeaders(trailers) : {};
-          res2.end();
+          res.end();
         }
         onError(err) {
-          const { res: res2, callback, opaque, body } = this;
+          const { res, callback, opaque, body } = this;
           removeSignal(this);
           this.factory = null;
-          if (res2) {
+          if (res) {
             this.res = null;
-            util.destroy(res2, err);
+            util.destroy(res, err);
           } else if (callback) {
             this.callback = null;
             process.nextTick((self2, callback2, err2, opaque2) => {
@@ -35694,7 +35694,7 @@ ${len.toString(16)}\r
               }
             },
             destroy: (err, callback) => {
-              const { body, req, res: res2, ret, abort } = this;
+              const { body, req, res, ret, abort } = this;
               if (!err && !ret._readableState.endEmitted) {
                 err = new RequestAbortedError();
               }
@@ -35703,7 +35703,7 @@ ${len.toString(16)}\r
               }
               util.destroy(body, err);
               util.destroy(req, err);
-              util.destroy(res2, err);
+              util.destroy(res, err);
               removeSignal(this);
               callback(err);
             }
@@ -35763,12 +35763,12 @@ ${len.toString(16)}\r
           this.body = body;
         }
         onData(chunk) {
-          const { res: res2 } = this;
-          return res2.push(chunk);
+          const { res } = this;
+          return res.push(chunk);
         }
         onComplete(trailers) {
-          const { res: res2 } = this;
-          res2.push(null);
+          const { res } = this;
+          res.push(null);
         }
         onError(err) {
           const { ret } = this;
@@ -46520,7 +46520,7 @@ async function api(request, resource, data) {
       status = 201;
       break;
   }
-  if (res.ok && request.method !== "GET" && request.headers.accept !== "application/json") {
+  if (request.method !== "GET" && request.headers.accept !== "application/json") {
     return {
       status: 303,
       headers: {
@@ -46892,12 +46892,12 @@ var css = {
   map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\" lang=\\"ts\\">import { enhance } from '$lib/form';\\n// see https://kit.svelte.dev/docs#loading\\nexport const load = async ({ fetch }) => {\\n    const res = await fetch('/todos.json');\\n    if (res.ok) {\\n        const todos = await res.json();\\n        return {\\n            props: { todos }\\n        };\\n    }\\n    const { message } = await res.json();\\n    return {\\n        error: new Error(message)\\n    };\\n};\\n<\/script>\\n\\n<script lang=\\"ts\\">import { scale } from 'svelte/transition';\\nimport { flip } from 'svelte/animate';\\nexport let todos;\\nasync function patch(res) {\\n    const todo = await res.json();\\n    todos = todos.map((t) => {\\n        if (t.uid === todo.uid)\\n            return todo;\\n        return t;\\n    });\\n}\\n<\/script>\\n\\n<svelte:head>\\n\\t<title>Todos</title>\\n</svelte:head>\\n\\n<div class=\\"todos\\">\\n\\t<h1>Todos</h1>\\n\\n\\t<form\\n\\t\\tclass=\\"new\\"\\n\\t\\taction=\\"/todos.json\\"\\n\\t\\tmethod=\\"post\\"\\n\\t\\tuse:enhance={{\\n\\t\\t\\tresult: async (res, form) => {\\n\\t\\t\\t\\tconst created = await res.json();\\n\\t\\t\\t\\ttodos = [...todos, created];\\n\\n\\t\\t\\t\\tform.reset();\\n\\t\\t\\t}\\n\\t\\t}}\\n\\t>\\n\\t\\t<input name=\\"text\\" aria-label=\\"Add todo\\" placeholder=\\"+ tap to add a todo\\" />\\n\\t</form>\\n\\n\\t{#each todos as todo (todo.uid)}\\n\\t\\t<div\\n\\t\\t\\tclass=\\"todo\\"\\n\\t\\t\\tclass:done={todo.done}\\n\\t\\t\\ttransition:scale|local={{ start: 0.7 }}\\n\\t\\t\\tanimate:flip={{ duration: 200 }}\\n\\t\\t>\\n\\t\\t\\t<form\\n\\t\\t\\t\\taction=\\"/todos/{todo.uid}.json?_method=patch\\"\\n\\t\\t\\t\\tmethod=\\"post\\"\\n\\t\\t\\t\\tuse:enhance={{\\n\\t\\t\\t\\t\\tpending: (data) => {\\n\\t\\t\\t\\t\\t\\ttodo.done = !!data.get('done');\\n\\t\\t\\t\\t\\t},\\n\\t\\t\\t\\t\\tresult: patch\\n\\t\\t\\t\\t}}\\n\\t\\t\\t>\\n\\t\\t\\t\\t<input type=\\"hidden\\" name=\\"done\\" value={todo.done ? '' : 'true'} />\\n\\t\\t\\t\\t<button class=\\"toggle\\" aria-label=\\"Mark todo as {todo.done ? 'not done' : 'done'}\\" />\\n\\t\\t\\t</form>\\n\\n\\t\\t\\t<form\\n\\t\\t\\t\\tclass=\\"text\\"\\n\\t\\t\\t\\taction=\\"/todos/{todo.uid}.json?_method=patch\\"\\n\\t\\t\\t\\tmethod=\\"post\\"\\n\\t\\t\\t\\tuse:enhance={{\\n\\t\\t\\t\\t\\tresult: patch\\n\\t\\t\\t\\t}}\\n\\t\\t\\t>\\n\\t\\t\\t\\t<input aria-label=\\"Edit todo\\" type=\\"text\\" name=\\"text\\" value={todo.text} />\\n\\t\\t\\t\\t<button class=\\"save\\" aria-label=\\"Save todo\\" />\\n\\t\\t\\t</form>\\n\\n\\t\\t\\t<form\\n\\t\\t\\t\\taction=\\"/todos/{todo.uid}.json?_method=delete\\"\\n\\t\\t\\t\\tmethod=\\"post\\"\\n\\t\\t\\t\\tuse:enhance={{\\n\\t\\t\\t\\t\\tpending: () => (todo.pending_delete = true),\\n\\t\\t\\t\\t\\tresult: () => {\\n\\t\\t\\t\\t\\t\\ttodos = todos.filter((t) => t.uid !== todo.uid);\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}}\\n\\t\\t\\t>\\n\\t\\t\\t\\t<button class=\\"delete\\" aria-label=\\"Delete todo\\" disabled={todo.pending_delete} />\\n\\t\\t\\t</form>\\n\\t\\t</div>\\n\\t{/each}\\n</div>\\n\\n<style>\\n\\t.todos {\\n\\t\\twidth: 100%;\\n\\t\\tmax-width: var(--column-width);\\n\\t\\tmargin: var(--column-margin-top) auto 0 auto;\\n\\t\\tline-height: 1;\\n\\t}\\n\\n\\t.new {\\n\\t\\tmargin: 0 0 0.5rem 0;\\n\\t}\\n\\n\\tinput {\\n\\t\\tborder: 1px solid transparent;\\n\\t}\\n\\n\\tinput:focus-visible {\\n\\t\\tbox-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.1);\\n\\t\\tborder: 1px solid #ff3e00 !important;\\n\\t\\toutline: none;\\n\\t}\\n\\n\\t.new input {\\n\\t\\tfont-size: 28px;\\n\\t\\twidth: 100%;\\n\\t\\tpadding: 0.5em 1em 0.3em 1em;\\n\\t\\tbox-sizing: border-box;\\n\\t\\tbackground: rgba(255, 255, 255, 0.05);\\n\\t\\tborder-radius: 8px;\\n\\t\\ttext-align: center;\\n\\t}\\n\\n\\t.todo {\\n\\t\\tdisplay: grid;\\n\\t\\tgrid-template-columns: 2rem 1fr 2rem;\\n\\t\\tgrid-gap: 0.5rem;\\n\\t\\talign-items: center;\\n\\t\\tmargin: 0 0 0.5rem 0;\\n\\t\\tpadding: 0.5rem;\\n\\t\\tbackground-color: white;\\n\\t\\tborder-radius: 8px;\\n\\t\\tfilter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));\\n\\t\\ttransform: translate(-1px, -1px);\\n\\t\\ttransition: filter 0.2s, transform 0.2s;\\n\\t}\\n\\n\\t.done {\\n\\t\\ttransform: none;\\n\\t\\topacity: 0.4;\\n\\t\\tfilter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.1));\\n\\t}\\n\\n\\tform.text {\\n\\t\\tposition: relative;\\n\\t\\tdisplay: flex;\\n\\t\\talign-items: center;\\n\\t\\tflex: 1;\\n\\t}\\n\\n\\t.todo input {\\n\\t\\tflex: 1;\\n\\t\\tpadding: 0.5em 2em 0.5em 0.8em;\\n\\t\\tborder-radius: 3px;\\n\\t}\\n\\n\\t.todo button {\\n\\t\\twidth: 2em;\\n\\t\\theight: 2em;\\n\\t\\tborder: none;\\n\\t\\tbackground-color: transparent;\\n\\t\\tbackground-position: 50% 50%;\\n\\t\\tbackground-repeat: no-repeat;\\n\\t}\\n\\n\\tbutton.toggle {\\n\\t\\tborder: 1px solid rgba(0, 0, 0, 0.2);\\n\\t\\tborder-radius: 50%;\\n\\t\\tbox-sizing: border-box;\\n\\t\\tbackground-size: 1em auto;\\n\\t}\\n\\n\\t.done .toggle {\\n\\t\\tbackground-image: url(\\"data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 1.5L7.4375 14.5L1.5 8.5909' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\\");\\n\\t}\\n\\n\\t.delete {\\n\\t\\tbackground-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 5V22H19.5V5H4.5Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M10 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 5H22' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 5L9.6445 2H14.3885L16 5H8Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");\\n\\t\\topacity: 0.2;\\n\\t}\\n\\n\\t.delete:hover,\\n\\t.delete:focus {\\n\\t\\ttransition: opacity 0.2s;\\n\\t\\topacity: 1;\\n\\t}\\n\\n\\t.save {\\n\\t\\tposition: absolute;\\n\\t\\tright: 0;\\n\\t\\topacity: 0;\\n\\t\\tbackground-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 2H3.5C2.67158 2 2 2.67157 2 3.5V20.5C2 21.3284 2.67158 22 3.5 22H20.5C21.3284 22 22 21.3284 22 20.5V3.5C22 2.67157 21.3284 2 20.5 2Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M17 2V11H7.5V2H17Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M13.5 5.5V7.5' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5.99844 2H18.4992' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E%0A\\");\\n\\t}\\n\\n\\t.todo input:focus + .save,\\n\\t.save:focus {\\n\\t\\ttransition: opacity 0.2s;\\n\\t\\topacity: 1;\\n\\t}\\n</style>\\n"],"names":[],"mappings":"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"}`
 };
 var load = async ({ fetch: fetch2 }) => {
-  const res2 = await fetch2("/todos.json");
-  if (res2.ok) {
-    const todos = await res2.json();
+  const res = await fetch2("/todos.json");
+  if (res.ok) {
+    const todos = await res.json();
     return { props: { todos } };
   }
-  const { message } = await res2.json();
+  const { message } = await res.json();
   return { error: new Error(message) };
 };
 var Todos = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -46930,14 +46930,14 @@ var index = /* @__PURE__ */ Object.freeze({
 
 // .svelte-kit/vercel/entry.js
 init();
-var entry_default = async (req, res2) => {
+var entry_default = async (req, res) => {
   const { pathname, searchParams } = new URL(req.url || "", "http://localhost");
   let body;
   try {
     body = await getRawBody(req);
   } catch (err) {
-    res2.statusCode = err.status || 400;
-    return res2.end(err.reason || "Invalid request body");
+    res.statusCode = err.status || 400;
+    return res.end(err.reason || "Invalid request body");
   }
   const rendered = await render({
     method: req.method,
@@ -46948,9 +46948,9 @@ var entry_default = async (req, res2) => {
   });
   if (rendered) {
     const { status, headers, body: body2 } = rendered;
-    return res2.writeHead(status, headers).end(body2);
+    return res.writeHead(status, headers).end(body2);
   }
-  return res2.writeHead(404).end();
+  return res.writeHead(404).end();
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {});
