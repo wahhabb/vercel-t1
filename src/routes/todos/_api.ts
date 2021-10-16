@@ -47,6 +47,7 @@ export async function api(request: Request<Locals>, resource: string, data?: Tod
 			break;
 		case 'GET':
 			body = await prisma.todo.findMany();
+			console.log(body);
 			status = 200;
 			break;
 		case 'PATCH':
